@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        border: 1px solid black;
+        padding: 10px;
+        position: relative;
+      }
+
+      .a {
+        background-color: blue;
+        left: 50px;
+        top: 50px;
+      }
+
+      .b {
+        background-color: red;
+        left: 50px;
+        top: 50px;
+      }
+
+      .box img {
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        position : 요소의 위치 지정 방식 결정
+        position: static; 기본상태
+        position: fixed; 브라우저(뷰포트)를 기준으로 배치
+        position: absolute; 위치 상 부모 요소를 기준으로 배치
+          위치 상 부모 요소 : position 값이 부여된 다른 요소(주로 사용하는 부모 요소는 position:relative)
+        position: relative; 요소 자신을 기준으로 배치. 따라서 left,right,top,bottom 값을 부여해야 의미가 있음
+     -->
+    <div class="box a">
+      <img src="https://placehold.co/100/png" alt="" />
+    </div>
+    <div class="box b">
+      <img src="https://placehold.co/100/png" alt="" />
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa asperiores impedit
+      expedita. Non minus corrupti quam quis porro laboriosam excepturi asperiores
+      suscipit laborum eveniet incidunt distinctio iste exercitationem fuga sapiente modi
+      ratione officia perferendis, laudantium odit! Tenetur et amet mollitia placeat,
+      laborum eius. Architecto perferendis accusamus autem itaque vitae quasi sint
+      quibusdam natus repudiandae cum. Quos molestias accusantium rerum eaque quibusdam
+      enim sint tempore fuga necessitatibus ullam in numquam, doloribus tempora obcaecati
+      vero cumque sit doloremque dolor ab, fugiat ut! Cum culpa voluptatem quas libero
+      nisi aut, ut veritatis reprehenderit, perferendis enim quam quisquam eum tempore
+      repellat dolores qui earum.
+    </p>
+  </body>
+</html>

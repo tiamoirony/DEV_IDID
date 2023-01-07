@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body id="target">
+    <form action="" method="get">
+      <div>
+        <input type="radio" name="color" id="blue" data-color="blue" />파랑색
+        <input type="radio" name="color" id="green" data-color="green" />녹색
+      </div>
+    </form>
+    <script>
+      // 라디오 버튼이 클릭 될 때마다 body 배경색 변경
+
+      // function 작성
+      //   function changeColor(color) {
+      //     //배경색 변경
+      //     //blue가 클릭 되었다면 배경색 blue로 변경
+      //     //document.querySelector("#target").style.background = "blue";
+
+      //     //green이 클릭 되었다면 배경색 green로 변경
+      //     //document.querySelector("#target").style.background = "green";
+
+      //     document.querySelector("#target").style.background = color;
+      //   }
+
+      //   // 이벤트 대상
+      //   document.querySelector("#blue").addEventListener("click", function () {
+      //     changeColor("blue");
+      //   });
+      //   document.querySelector("#green").addEventListener("click", () => {
+      //     changeColor("green");
+      //   });
+
+      // 방법2
+      function changeColor(e) {
+        // e : event, e.target : event 일어난 대상, e.currentTarget : event 핸들러가 부착된 요소
+        // console.log(e.target);
+        // data- 에 들어있는 value 가져오기
+        console.log(e.target.dataset.color);
+        // console.log(e.currentTarget);
+        document.querySelector("#target").style.background = e.target.dataset.color;
+      }
+      //   document.querySelector("#blue").addEventListener("click", changeColor);
+      //   document.querySelector("#green").addEventListener("click", changeColor);
+
+      document.querySelector("form").addEventListener("click", changeColor);
+    </script>
+  </body>
+</html>

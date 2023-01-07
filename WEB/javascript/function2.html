@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 코드는 위에서 아래로 실행되는 상태이므로 1. 정의 2. 호출
+      // 호이스팅 : 끌어올려서 실행   1. 호출 2. 정의
+
+      // 함수 호출
+      myFunction();
+
+      // 함수 정의
+      function myFunction() {
+        console.log("Hello");
+      }
+
+      //   함수 표현식은 hoisting 안됨
+      //   Uncaught ReferenceError: Cannot access 'add' before initialization
+      //   console.log(add(3, 4));
+      //   const add = function (a, b) {
+      //     return a + b;
+      //   };
+
+      // 함수 정의/사용 에러 감소 : 함수표현식
+
+      // var : 호이스팅이 가능한 변수 선언 방식(허용이 많은 변수 선언)
+      // let : 엄격한 변수 선언
+      console.log(amount); // undefined
+      //   var amount = 10;
+      let amount = 10; // Cannot access 'amount' before initialization
+    </script>
+  </body>
+</html>

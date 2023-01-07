@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="" method="get">
+      <div>
+        <input type="text" name="num1" id="num1" />
+        <select name="op" id="op">
+          <option value="+">+</option>
+          <option value="-">-</option>
+          <option value="*">*</option>
+          <option value="/">/</option>
+          <option value="%">%</option>
+        </select>
+        <input type="text" name="num2" id="num2" />
+        <input type="button" value="결과" />
+      </div>
+    </form>
+    <p id="result"></p>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+      //사용자가 입력한 숫자 2개와 연산자를 선택한 후 결과 버튼을 클릭하면
+      //결과를 result에 보여주기
+
+      $("[type='button']").on("click", function () {
+        // input==>string 이므로 숫자로 변경(Number(), parseInt())
+        let num1 = Number($("#num1").val());
+        let num2 = Number($("#num2").val());
+
+        // +, -, *, /, % 가 돌아가면서 들어올 수 있음
+        let op = $("#op").val();
+        let result = 0;
+        // if (op == "+") {
+        //   result = num1 + num2;
+        // } else if (op == "-") {
+        //   result = num1 - num2;
+        // } else if (op == "*") {
+        //   result = num1 * num2;
+        // } else if (op == "/") {
+        //   result = num1 - num2;
+        // } else {
+        //   result = num1 % num2;
+        // }
+
+        // if~else if~else 대체
+        switch (op) {
+          case "+": // op == "+"
+            result = num1 + num2;
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result = num1 / num2;
+            break;
+          case "%":
+            result = num1 % num2;
+            break;
+          default:
+            break;
+        }
+
+        $("#result").html(result);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="demo">Click me</p>
+    <div>
+      <label for="">성별</label>
+      <input type="radio" name="gender" id="male" value="남" />남
+      <input type="radio" name="gender" id="female" value="여" />여
+    </div>
+    <script>
+      //   let demo = document.querySelector("#demo");
+      //p 요소를 클릭하면 Click me ==> Good Job
+      //   function show() {
+      //     demo.innerHTML = "Good Job";
+      //   }
+      //   demo.addEventListener("click", show);
+
+      //   demo.addEventListener("click", function (e) {
+      //     e.target.innerHTML = "Good Job";
+      //   });
+
+      document
+        .querySelector("#demo")
+        .addEventListener("click", (e) => (e.target.innerHTML = "Good Job"));
+
+      //성별을 클릭하면 선택된 성별을 콘솔창 출력
+      document
+        .querySelector("div")
+        .addEventListener("click", (e) => console.log(e.target.value));
+    </script>
+  </body>
+</html>

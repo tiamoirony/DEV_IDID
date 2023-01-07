@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+{% endblock style %}
+
+{% block contents %}
+  <h2>App1 - list</h2>
+
+  <img src="{% static 'img/ss.jpg' %}" alt="">
+
+{% endblock contents %}
+
+{% block script %}
+  <script src='{% static 'js/bootstrap.bundle.js' %}'></script>
+{% endblock script %}

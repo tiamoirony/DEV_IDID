@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="p1">This is a paragraph.</p>
+    <input type="button" value="눌러보세요" />
+    <input type="button" value="요소숨김" />
+    <input type="button" value="요소보이기" />
+
+    <script>
+      //버튼 클릭 시 p 태그 스타일 변경하기
+      const p1 = document.querySelector("#p1");
+
+      //폰트, 색상, 기울임꼴
+      //   document
+      //     .querySelector("input:nth-child(2)")
+      //     .addEventListener("click", function () {
+      //       p1.style.fontFamily = "궁서";
+      //       p1.style.color = "red";
+      //       p1.style.fontStyle = "italic";
+      //     });
+      //   //요소 숨김 버튼 클릭 시 p 태그 숨기기
+      //   document
+      //     .querySelector("input:nth-child(3)")
+      //     .addEventListener("click", function () {
+      //       // 숨김 - display, visibility(영역은 잡고 있음)
+      //       //   p1.style.diplay = "none";
+      //       p1.style.visibility = "hidden";
+      //     });
+      //   //요소 보이기 버튼 클릭 시 p 태그 보여주기
+      //   document
+      //     .querySelector("input:nth-child(4)")
+      //     .addEventListener("click", function () {
+      //       //   p1.style.diplay = "block";
+      //       p1.style.visibility = "visible";
+      //     });
+
+      document.querySelectorAll("input").forEach(function (button, idx) {
+        // console.log(idx, ": ", button);
+        button.addEventListener("click", (e) => {
+          console.log(e.target);
+          //어느 버튼이 눌렸지?
+          //idx, e.target.value
+
+          if (idx == 0) {
+            //e.target.value == "눌러보세요"
+            p1.style.fontFamily = "궁서";
+            p1.style.color = "red";
+            p1.style.fontStyle = "italic";
+          } else if (idx == 1) {
+            p1.style.visibility = "hidden";
+          } else {
+            p1.style.visibility = "visible";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

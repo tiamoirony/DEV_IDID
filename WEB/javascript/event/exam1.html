@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="ex">여기가 div로 선언되었습니다.</div>
+    <p><a href="#" id="display">div 요소 내용 출력하기</a></p>
+    <p><a href="#" id="revalue">div 요소 내용 변경하기</a></p>
+    <div>
+      <img src="../file/animals2.jpg" alt="" />
+      <input type="button" value="눌러보세요" />
+    </div>
+    <div>
+      <button type="button" id="turn-on">Turn on Light</button>
+      <img src="../file/pic_bulboff.gif" alt="" id="bul" />
+      <button type="button" id="turn-off">Turn off Light</button>
+    </div>
+  </body>
+  <script>
+    //첫번째 p 클릭 : div 내용을 alert 창으로 보여주기
+    //두번째 p 클릭 : div 내용을 변경하기(내용이 변경되었습니다)
+
+    //이벤트 대상 ==> p
+    document.querySelector("#display").addEventListener("click", function () {
+      // div 내용을 경고창으로 보여주기
+      alert(document.getElementById("ex").innerHTML);
+    });
+
+    document.querySelector("#revalue").addEventListener("click", function () {
+      // div 내용을 변경하기
+      document.getElementById("ex").innerHTML = "내용이 변경되었습니다";
+    });
+
+    //버튼 클릭 시 이미지 변경
+    document
+      .querySelector("[type='button']")
+      .addEventListener("click", function () {
+        //이미지 요소 가져오기
+        document.querySelector("img").src = "../file/animals3.jpg";
+      });
+
+    //turn-on, turn-off 클릭 시 이미지 변경
+    let img = document.querySelector("#bul");
+    document.querySelector("#turn-on").addEventListener("click", function () {
+      img.src = "../file/pic_bulbon.gif";
+    });
+    document.querySelector("#turn-off").addEventListener("click", function () {
+      img.src = "../file/pic_bulboff.gif";
+    });
+  </script>
+</html>

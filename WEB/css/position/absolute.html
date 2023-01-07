@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        height: 4000px;
+      }
+      .box {
+        border: 1px solid tomato;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        /* right: 100px;
+        bottom: 100px; */
+      }
+
+      .box img {
+        vertical-align: top;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        position : 요소의 위치 지정 방식 결정
+        position: static; 기본상태
+        position: fixed; 브라우저(뷰포트)를 기준으로 배치
+        position: absolute; 위치 상 부모 요소를 기준으로 배치
+          위치 상 부모 요소 : position 값이 부여된 다른 요소(주로 사용하는 부모 요소는 position:relative)
+     -->
+    <div class="box">
+      <img src="https://placehold.co/100/png" alt="" />
+    </div>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa asperiores impedit
+      expedita. Non minus corrupti quam quis porro laboriosam excepturi asperiores
+      suscipit laborum eveniet incidunt distinctio iste exercitationem fuga sapiente modi
+      ratione officia perferendis, laudantium odit! Tenetur et amet mollitia placeat,
+      laborum eius. Architecto perferendis accusamus autem itaque vitae quasi sint
+      quibusdam natus repudiandae cum. Quos molestias accusantium rerum eaque quibusdam
+      enim sint tempore fuga necessitatibus ullam in numquam, doloribus tempora obcaecati
+      vero cumque sit doloremque dolor ab, fugiat ut! Cum culpa voluptatem quas libero
+      nisi aut, ut veritatis reprehenderit, perferendis enim quam quisquam eum tempore
+      repellat dolores qui earum.
+    </p>
+  </body>
+</html>

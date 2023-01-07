@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // "안녕" 글자 5번 출력
+      //   document.write("안녕<br>");
+      //   document.write("안녕<br>");
+      //   document.write("안녕<br>");
+      //   document.write("안녕<br>");
+      //   document.write("안녕<br>");
+
+      // 여러 번 반복해야 되는 코드 : for, while
+      // (초기화;반복횟수(조건);증감)
+      // for( ; ; ) : 무한루프
+
+      // 초기화 : 루프 시작시 가장 처음만 실행
+      // 반복 할 때마다 : 조건, 증감
+      // i++ : i=i+1,  i-- : i=i-1
+      for (let i = 0; i < 5; i++) {
+        document.write("안녕<br>");
+      }
+      document.write("<br>");
+      //   1~10까지 출력
+
+      //   document.write("1<br>");
+      //   document.write("2<br>");
+      //   document.write("3<br>");
+      //   document.write("4<br>");
+      //   document.write("5<br>");
+      //   document.write("6<br>");
+
+      for (let i = 1; i < 11; i++) {
+        document.write(i + "<br>");
+      }
+
+      // 배열(인덱싱 -1, 슬라이싱 개념 없음) == 파이썬 list 와 같은 개념
+      const fruits = ["사과", "망고", "바나나", "키위", "수박", "귤"];
+      // 배열 요소 출력
+      //   document.write(fruits[0] + "<br>");
+      //   document.write(fruits[1] + "<br>");
+      //   document.write(fruits[2] + "<br>");
+
+      //   배열명.length : 배열의 길이
+      for (let i = 0; i < fruits.length; i++) {
+        document.write(fruits[i] + "<br>");
+      }
+
+      document.write("<p>for의 다른 구조</p>");
+      for (let fruit of fruits) {
+        document.write(fruit + " ");
+      }
+      document.write("<p>--------</p>");
+
+      // 1~100 숫자 중 짝수만 출력
+      for (let i = 1; i < 101; i++) {
+        if (i % 2 == 0) {
+          document.write(i + " ");
+        }
+      }
+
+      // while 문
+      //  초기화;
+      //  while(조건){   증감; }
+      document.write("<br>");
+      let i = 0;
+      while (i < 5) {
+        document.write("안녕<br>");
+        i++;
+      }
+
+      i = 1;
+      while (i < 11) {
+        document.write(i + "<br>");
+        i++;
+      }
+
+      i = 0;
+      while (i < fruits.length) {
+        document.write(fruits[i] + "<br>");
+        i++;
+      }
+
+      //
+      const numArr = [52, 273, 586, 32, 57, 103, 312, 2];
+
+      // 배열 안에서 최소값과 최대값 찾아서 출력
+
+      // 최대값과 최소값을 담는 변수 선언
+      let max = 0,
+        min = 999;
+      // max = numArr[0], min=numArr[0], for i=1
+
+      // 배열을 순환하면서 배열 요소의 값과 max, min 의 값을 비교해서 최대값과 최소값 찾기
+      for (let i = 0; i < numArr.length; i++) {
+        if (numArr[i] > max) {
+          max = numArr[i];
+        }
+        if (numArr[i] < min) {
+          min = numArr[i];
+        }
+      }
+
+      document.write("최대값 : " + max + "<br>");
+      document.write("최솟값 : " + min + "<br>");
+
+      // continue(continue 문 다음의 코드 건너띄기), break(블럭 빠져나오기)
+      //   for (let i = 0; i <= 100; i += 2) {
+      //     if (i == 50) break;
+      //     console.log(i);
+      //   }
+
+      for (let i = 0; i <= 100; i += 2) {
+        if (i == 50) continue;
+        console.log(i);
+      }
+    </script>
+  </body>
+</html>

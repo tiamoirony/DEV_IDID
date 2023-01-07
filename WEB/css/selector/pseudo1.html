@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      a:link {
+        text-decoration: none;
+        color: black;
+      }
+      a:visited {
+        color: black;
+      }
+      a:hover {
+        color: orange;
+      }
+      a:active {
+        color: magenta;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+        a
+        :link => 방문하지 않은 링크 스타일 적용
+        :visited => 방문한 링크 스타일 적용
+        :hover => 요소에 마우스를 올려놓았을 때 스타일 적용
+        :active => 요소를 활성화했을 때 스타일 적용
+
+
+        :focus => 웹 요소에 포커스가 들어왔을 때 스타일 적용
+     -->
+    <h1 id="title">css(cascading style sheet) 기본 문법</h1>
+    <h2>selector(선택자) - anchor pseudo class(가상 클래스) 선택자</h2>
+    <ul>
+      <li><a href="#" target="_blank">google</a></li>
+      <li><a href="#" target="_blank">daum</a></li>
+      <li><a href="#" target="_self">naver</a></li>
+    </ul>
+  </body>
+</html>

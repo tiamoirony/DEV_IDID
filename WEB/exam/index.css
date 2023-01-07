@@ -1,0 +1,14 @@
+.carousel-wrapper {
+    overflow: hidden;
+}
+.carousel {
+    width: 300vw;
+}
+.slide-box {
+    width: 100vw;
+    height: 700px;
+    float: left;
+}
+.slide-box img {
+    width: 100%;
+}

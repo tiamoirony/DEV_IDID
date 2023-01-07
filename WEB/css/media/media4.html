@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 전체:box-sizing */
+      * {
+        box-sizing: border-box;
+      }
+
+      /* body:배경색(#ecf0f1) */
+      body {
+        background-color: #ecf0f1;
+      }
+
+      /* wrapper:max-width(60rem), width:100%, margin:상,하(2em) 좌우(auto) */
+      .wrapper {
+        max-width: 60rem;
+        width: 100%;
+        margin: 2em auto;
+      }
+
+      .flexbg {
+        display: flex; /* 수평배치 */
+      }
+
+      .flexbg main {
+        order: 2;
+        background-color: white;
+        padding: 25px;
+      }
+
+      .flexbg .sidebar {
+        width: 20%;
+        padding: 25px;
+      }
+
+      .flexbg .left {
+        order: 1;
+        background-color: #3498db;
+      }
+
+      .flexbg .right {
+        order: 3;
+        background-color: #34495e;
+      }
+
+      @media screen and (max-width: 768px) {
+        .flexbg {
+          flex-wrap: wrap; /* flex item 들의 줄바꿈 설정 */
+        }
+        .flexbg main {
+          order: 1;
+          width: 100%;
+        }
+        .flexbg .sidebar {
+          width: 50%;
+        }
+
+        .flexbg .left {
+          order: 2;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .flexbg .sidebar {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper flexbg">
+      <main>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, maiores
+          recusandae. Recusandae modi omnis, sit voluptates odit laboriosam iusto deleniti
+          doloremque, minima illo illum, nemo porro nobis laborum in eaque!
+        </p>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum magni porro
+          nobis odit tempora officiis ipsum iusto aliquid et non, vel, reprehenderit fuga
+          officia earum quibusdam molestias aut maiores, iure nemo. Reprehenderit,
+          quisquam. Ad obcaecati autem iste velit, omnis quidem nihil aliquid? Iure
+          necessitatibus, facere ad corporis tempora ipsam ab tempore, animi, architecto
+          quo sunt adipisci saepe voluptatibus ullam pariatur! Perferendis harum amet qui
+          deserunt. Quis alias ipsam placeat nulla.
+        </p>
+      </main>
+      <aside class="sidebar left">
+        <p>왼쪽 서브 메뉴</p>
+      </aside>
+      <aside class="sidebar right">
+        <p>오른쪽 서브 메뉴</p>
+      </aside>
+    </div>
+  </body>
+</html>
