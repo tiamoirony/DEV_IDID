@@ -4,13 +4,13 @@
     --black-color: rgb(14, 13, 13);
     --blue-color: rgb(53, 94, 226);
     --red-color: rgb(224, 51, 51);
-    --grey-dark-color: rgba(226, 223, 223, 0.253);
-    --grey-light-color: rgb(235, 230, 230);
+    --grey-dark-color: rgb(15, 15, 15);
+    --grey-light-color: rgb(42, 46, 42);
 
 
 
     /* Size */
-    --side-padding:12px;
+    --side-padding:16px;
     --avatar-size: 36px;
 
 
@@ -46,18 +46,28 @@ button:focus {
 header{
     display: flex;
     justify-content: space-between;
-    padding: var(--padding);
+    padding: 15px;
     background-color: var(--black-color);
     color: var(--white-clolor);
 }
 
-header .logi i {
+header .logo span {
+    font-size: 20px;
+
+
+}
+header .logo i {
     color: var(--red-color);
+
 
 }
 
 header .icons .fa-search{
-    margin-right: var(--padding);
+    margin-right: 12px;
+}
+
+header .icons .fa-ellipsis-v{
+    margin-right: 12px;
 }
 
 .player {
@@ -71,12 +81,22 @@ header .icons .fa-search{
 .player video {
     width: 100%;
     height: 100%;
-    max-width: 1000px;
+    max-width: 500px;
 }
 
 
 .info {
     padding: var(--padding);
+}
+
+.hashtags {
+    display: flex;
+    font-size: var(--font-small);
+    color: var(--blue-color);
+}
+
+.hashtags li {
+    margin-right: 15px;
 }
 
 .info .metadata .hashtags {
@@ -98,8 +118,161 @@ header .icons .fa-search{
 
 .info .metadata .titleAndButtom .title {
     font-size: var( --font-medium  );
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    margin-right: var(--padding);
+
+}
+
+.info .metadata .titleAndButtom .moreBtn {
+    height: 100%;
+
+}
+
+.info .views{
+    font-size: var(--font-small);
+    color: var(--grey-dark-color);
+
+}
+.actions {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+
+
 }
 
 
+.info .actions button {
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-small);
 
 
+}
+
+.info .actions button i {
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+.actions button i.active {
+    color: var(--blue-color);
+}
+
+.info .actions button i.active {
+    color: var(--blue-color);
+}
+
+.channel {
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid var(--grey-light-color);
+    border-bottom: 2px solid var(--grey-light-color);
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.channel .metadata{
+    display: flex;
+    align-items: center;
+
+}
+
+.channel .metadata .info{
+    display: flex;
+    flex-direction: column;
+
+} 
+.channel .metadata img{
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    border-radius: 50%;
+
+} 
+
+.channel .metadata .info{
+    display: flex;
+    flex-direction: column;
+}
+
+.channel .metadata .info .name {
+    font-size: var(--font-medium);
+
+}
+
+.channel .metadata .info .subscribres{
+    font-size: var(--font-small);
+    color: var(--grey-dark-color);
+}
+
+.channel .subscribe {
+    text-transform: uppercase;
+    color: var(--red-color);
+    font-size: var(--font-medium);
+
+}
+
+.Upnext {
+    padding: 0 var(--padding);
+}
+
+.Upnext > .title {
+    font-size: var(--font-medium);
+    color: var(--grey-dark-color);
+    margin-bottom: calc(var(--padding) /2 );
+}
+
+.Upnext .item{
+    display: flex;
+    margin-top: var(--padding);
+}
+.Upnext .item img{
+    width: 100px;
+    height: 200px;
+
+}  
+.Upnext .item .img{
+    flex: 1 1 35%;
+
+
+}   
+
+.Upnext .item .img img{
+    width: 100%;
+}   
+
+
+
+.Upnext .item .info {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+
+}   
+
+.Upnext .item .moreBtn {
+    height: 100%;
+    flex: 1 1 5%;
+
+}   
+
+.Upnext .item .info .name,
+.Upnext .item .info .views {
+    font-size: var(--font-micro);
+    color: var(--grey-dark-color);
+}
+
+.infoAndUpNext {
+    display: flex;
+    flex-direction: column;
+}
+
+@media screen and (min-width:768px) {
+    .infoAndUpNext {
+        flex-direction: row;
+        margin: var(--padding) 0; 
+    }
+}
