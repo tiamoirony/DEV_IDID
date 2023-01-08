@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"/>
     <title>Document</title>
 
 
@@ -23,80 +26,108 @@
         </div>
     </header>
 
-    <!-- video player -->
+    <!-- video player --> 
     <section class="player">
-        <video controls src="data/bang.mp4" muted="muted" id="mov1"></video>
+        <video controls src="../data/baege.mov" muted="muted" id="mov1"></video>
     </section>
 
-    <!-- video info --> 
-    <section class="info">
-        <!-- Metadata -->
-        <div class="metadata"></div>
-            <ul class="hashtags"> 
-                <li>#DreamCoding</li>
-                <li>#DreamCoders</li>
-                <li>#IDID</li>
+    <div class="infoAndUpNext">
+        <!-- video info --> 
+        <section class="info">
+            <!-- Metadata -->
+            <div class="metadata"></div>
+                <ul class="hashtags"> 
+                    <li>#DreamCoding</li>
+                    <li>#DreamCoders</li>
+                    <li>#IDID</li>
+                </ul>
+                <div class="titleAndButton"> 
+                    <span class="title">
+                        조회수 146,984회  2020. 3. 14.  프론트엔드 강의 - 프론트엔드 개발자 되기 입문편⭐️ (개념 + 클론코딩)
+    유튜브 사이트를 반응형으로 만들어 볼꺼예요. 순수 HTML, CSS를 이용해서 (Javascript 약간) 만들어 보고, 다음에 Javascript를 배우면 동적으로 서버에서 데이터를 가져오는 연습을 더 해보도록 할께요. (↙ 자세한 내용)
+                    </span>
+                    <button class="moreBtn">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                </div>
+                <div class="views">
+                    <span class="views">1M views 1 month ago</span>
+                </div>
+    
+            <!-- Actions -->
+                <ul class="actions">
+                    <li>
+                        <button><i class="active fas fa-thumbs-up"></i><span>1k</span></button>
+                    </li>
+                    <li>
+                        <button><i class="fas fa-thumbs-down"></i><span>0</span></button>
+                    </li>
+                    <li>
+                        <button><i class="fas fa-share"></i><span>Share</span></button>
+                    </li>
+                    <li>
+                        <button><i class="fas fa-plus"></i><span>Save</span></button>
+                    </li>
+                    <li>
+                        <button><i class="fas fa-font-awsome-flag"></i>
+                            <span>Report</span>
+                        </button>
+                    </li>
+                </ul>  
+            </div> 
+            <!-- Channel -->
+            <div class="channel">
+                <div class="metadata">
+                    <img src="../data/uwp3158225.jpeg" alt=""/>
+                    <div class="info">
+                        <span class="name">드림 코딩 </span>
+                        <span class="subscribres">1M subcribers</span>
+                    </div>
+                </div>    
+    
+                <div class="subscribe"><button class="subscribe">subscribe</button></div>
+            </div>
+        </section>
+        
+        <section class="Upnext">
+            <span class="title">Up next</span>
+            <ul>
+                <li class="item">
+                    <div class="img"><img src="../data/wp11267290-anime-bubble-wallpapers.jpg" alt=""></div>
+                    <div class="info">
+                        <span class="title">50분 영상 현실인가요? 😅 길지만 끝까지 다~ 봐주실꺼죠? 🙏🏼 (하.지.만. 1시간 안에 우리가 멋진 정적인 유튜브 웹사이트를 만든다는것!)
+                            강의관련 사이트나 자료는 동영상 정보란에서 확인해 주세요 :) </span>
+                        <span class="name">82K 50분 영상 현실</span>
+                        <span class="views"></span>
+                    </div>
+                    <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+                </li>
+                <li class="item">
+                    <div class="img"><img src="../data/wp11267290-anime-bubble-wallpapers.jpg" alt=""></div>
+                    <div class="info">
+                        <span class="title">50분 영상 현실인가요? 😅 길지만 끝까지 다~ 봐주실꺼죠? 🙏🏼 (하.지.만. 1시간 안에 우리가 멋진 정적인 유튜브 웹사이트를 만든다는것!)
+                            강의관련 사이트나 자료는 동영상 정보란에서 확인해 주세요 :)</span>
+                        <span class="name">82K 50분 영상 현실</span>
+                        <span class="views"></span>
+                    </div>
+                    <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+                </li>
+                <li class="item">
+                    <div class="img"><img src="../data/wp11267290-anime-bubble-wallpapers.jpg" alt=""></div>
+                    <div class="info">
+                        <span class="title">50분 영상 현실인가요? 😅 길지만 끝까지 다~ 봐주실꺼죠? 🙏🏼 (하.지.만. 1시간 안에 우리가 멋진 정적인 유튜브 웹사이트를 만든다는것!)
+                            강의관련 사이트나 자료는 동영상 정보란에서 확인해 주세요 :)</span>
+                        <span class="name">82K 50분 영상 현실</span>
+                        <span class="views"></span>
+                    </div>
+                    <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
+                </li>
             </ul>
-            <div class="titleAndButton"> 
-                <span class="title">
-                    사랑하고 사랑한 러브스토리 이야기 지금 시작합니다 후회 하지 않도록 많이 봐주세요 ~
-                </span>
-                <button class="moreBtn">
-                    <i class="fas fa-caret-down"></i>
-                </button>
-            </div>
-            <div class="views">
-                <span class="views">1M views 1 month ago</span>
-            </div>
+        </section>
 
-        <!-- Actions -->
-        <ul class="actions">
-            <li>
-                <button><i class="fas fa-thumbs-up"></i><span>Report</span></button>
-            </li>
-            <li>
-                <button><i class="fas fa-thumbs-down"></i><span>Report</span></button>
-            </li>
-            <li>
-                <button><i class="fas fa-share"></i><span>Report</span></button>
-            </li>
-            <li>
-                <button><i class="fas fa-plus"></i><span>Report</span></button>
-            </li>
-            <li>
-                <button><i class="fas fa-font-awsome-flag"></i>
-                    <span>Report</span>
-                </button>
-            </li>
-        </ul>  
-        </div> 
-        <!-- Channel -->
-        <div class="channel">
-            <div class="metadata">
-                <img src="data/ss.jpg" alt=""/>
-                <div class="info">
-                    <span class="name">드림 코딩 </span>
-                    <span class="subscribres">1M subcribers</span>
-                </div>
-            </div>    
-            <button class="subscribe">subscribe</button>
-            <div class="subscribe"></div>
-        </div>
-    </section>
-    <section class="Upnext">
-        <span class="title">Up next</span>
-        <ul>
-            <li class="item">
-                <img src="data/uwp3158225.jpeg" alt="">
-                <div class="info">
-                    <span class="title">드림코딩</span>
-                    <span class="name">82K</span>
-                    <span class="views"></span>
-                </div>
-                <button class="moreBtn"><i class="fas fa-ellipsis-v"></i></button>
-            </li>
-        </ul>
-    </section>
+    </div>
+
+
 
     <script>
         document.getElementById('mov01').play();
