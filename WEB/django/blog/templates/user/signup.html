@@ -25,10 +25,10 @@
         <label for="gender">성별</label>
         <select name="gender" id="" class='form-control'>
 
-          <option value="">---</option>
-          <option value="0">남자</option>
-          <option value="1">여자</option>
-          <option value="2">비공개</option>
+          <option value="" {% if from.gender.value == '' %} selected='selected' {% endif %}>---</option>
+          <option value="0" {% if from.gender.value == '0' %} selected='selected' {% endif %}>남자</option>
+          <option value="1" {% if from.gender.value == '1' %} selected='selected' {% endif %}>여자</option>
+          <option value="2" {% if from.gender.value == '2' %} selected='selected' {% endif %}>비공개</option>
         </select>
       </div>
       <div class="form-group">

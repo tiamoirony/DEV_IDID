@@ -1,26 +1,15 @@
+{% load social_share %}
 <ul class="list-inline text-center">
   <li class="list-inline-item">
-    <a href="#!">
-      <span class="fa-stack fa-lg">
-        <i class="fas fa-circle fa-stack-2x"></i>
-        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
+    {% post_to_twitter '[New Post] {{post.title}}' object_url '<span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-twitter fa-stack-1x fa-inverse"></i></span>'%}
+    <a href="#!"></a>
   </li>
   <li class="list-inline-item">
-    <a href="#!">
-      <span class="fa-stack fa-lg">
-        <i class="fas fa-circle fa-stack-2x"></i>
-        <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
+    {% post_to_facebook object_url '<span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i></span>'%}
+    <a href="#!"></a>
   </li>
   <li class="list-inline-item">
-    <a href="#!">
-      <span class="fa-stack fa-lg">
-        <i class="fas fa-circle fa-stack-2x"></i>
-        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-      </span>
-    </a>
+    {% post_to_telegram '[New Post] {{post.title}}' object_url '<span class="fa-stack fa-lg"><i class="fas fa-circle fa-stack-2x"></i><i class="fab fa-telegram fa-stack-1x fa-inverse"></i></span>'%}
+    <a href="#!"></a>
   </li>
 </ul>

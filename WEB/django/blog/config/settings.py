@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+from django.core.exceptions import ImproperlyConfigured
+import json
+import os 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +23,29 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-8+72yh+duof6a7j+no*w=wn6-*g745&s)r0piix7=twlb1(1c2"
+
+# 배포 하기 ===========================================================
+
+secret_file = os.path.join(BASE_DIR, 'secrets.json') # secrets.json 파일 위치를 명시
+
+with open(secret_file) as f:
+    secrets = json.loads(f.read())
+
+def get_secret(setting, secrets=secrets):
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+SECRET_KEY = get_secret("SECRET_KEY")
+
+
+# SECRET_KEY = "django-insecure-8+72yh+duof6a7j+no*w=wn6-*g745&s)r0piix7=twlb1(1c2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
 
 ALLOWED_HOSTS = []
 
@@ -40,6 +62,8 @@ INSTALLED_APPS = [
     "user",
     "blog",
 ]
+
+INSTALLED_APPS += ['django_social_share', 'taggit']
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -125,7 +149,8 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = "/"
+# 해당 성공후 갈  usr 설정 
+LOGIN_REDIRECT_URL = "/"         
 LOGOUT_REDIRECT_URL = "/"
 
 # user 생성시 장고 user 쓰지 않는다 

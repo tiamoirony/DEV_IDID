@@ -1,29 +1,23 @@
-/* 블릿 기호 제거, margin,padding 0, border 아래쪽:1px solid #ccc */
 ul.list {
-  list-style-type: none;
+  /*블릿 기호제거 마진 패딩 0 보더 아래만*/
   margin: 0;
   padding: 0;
   border-bottom: 1px solid #ccc;
+  list-style-type: none;
 }
-/* padding:상하10, 좌우20, float:left, 글자색상:grey */
 .tab-button {
-  padding: 10px 20px;
+  padding: 10px, 20px;
   margin-right: -1px;
   margin-bottom: -1px;
   float: left;
   color: gray;
-  cursor: pointer; /* 손모양 */
+  cursor: pointer;
 }
-
-/* float 해제 */
 ul.list::after {
   content: "";
   display: block;
   clear: both;
 }
-
-/* margin 윗쪽 -2px, border-top:2px solid orange, border-right: #ccc, 
-border-bottom: white, border-left:#ccc */
 .orange {
   margin-top: -2px;
   border-top: 2px solid orange;
@@ -33,17 +27,14 @@ border-bottom: white, border-left:#ccc */
   color: black;
 }
 
-/* display 안 보이도록, padding:10 */
 .tab-content {
   display: none;
   padding: 10px;
 }
-
 .show {
   display: block;
 }
 
-/* 세부 선택 안보이게 */
 .form-hide {
   display: none;
 }

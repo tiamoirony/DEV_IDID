@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'css/detail.css' %}">
+{% endblock style %}
+
+
 {% block contents %}
   <div class="container">
     <div class="row">
@@ -6,21 +12,43 @@
         <h3 class='border-bottom pd-2'>
           {{post.title}}
         </h3>
-        <div class="col-12">
 
+        <div class="col-12">
           {% if post.image %}
             <img src="{{post.image.url}}" alt="" class='mx-auto d-block'>
           {% endif %}
         </div>
+
         <div class="col-12">
           <p>{{post.content}}</p>
         </div>
       </div>
+
+      <!--좋아요-->
+      <div id="like_section" class='row mb-3'>
+      {% include 'blog/post_like.html' %}
+      </div>
+
+      <!--social 공유 -->
+      {% include 'social.html' %}
+
+
+      <div class="row mb-3">
+        <div class="col-12">
+          {% for tag in post.tags.all %}
+            <span class='badge bg-dark'>#{{tag.name}}</span>
+          {% endfor %}
+        </div>
+      </div>
+
+
+      <!--댓글 목록 -->
       <div class="card">
         <div class="card-header comment-header">
           <i class='fas fa-comments'></i>
           <span class='small'>Comment</span>
         </div>
+
         {% if post.comment_set.count > 0 %}
           {% for comment in post.comment_set.all%}
             <div class="card-body">
@@ -35,16 +63,74 @@
           {% endfor %}
         {% endif %}
       </div>
+
     </div>
   </div>
-  <form method="post">
+  {% if messages %}
+    <div class="alert alert-danger">
+      <strong>{{messages}}</strong>
+    </div>
+  {% endif %}
+
+  <form method="post" action='{% url 'comment_create' %}'>
+
     {% csrf_token %}
     <div class="form-group">
-      <textarea type="content" name="content" id="content" rows='7' class='form-control' value=''></textarea>
+      <textarea name="content" id="content" rows='7' class='form-control' value=''></textarea>
     </div>
+
+    {% comment %} 로그인 사용자만 버튼 {% endcomment %}
+    {% if user.is_authenticated %}
     <div class="form-group my-3">
       <button class='btn btn-primary' type='submit'>댓글작성</button>
     </div>
+    {% endif %}
+
     <input type="hidden" name='post_id' value='{{post.pk}}'>
   </div>
+
 {% endblock contents %}
+{% block script %}
+  <script>
+    $(function (){
+
+      const csrftoken = $('[name=csrfmiddlewaretoken]').val();
+
+        $('.recommand button').on('click',function(e){
+
+        // 자바스트립트 객체 생성 
+        let param = {
+          id: $(this).attr('value'),
+          csrfmiddlewaretoken: csrftoken
+        }
+
+        $.ajax({
+          type:'post',
+          url: '{% url 'post_like' %}',
+          data: param,
+          dataType: 'json',
+          success:function(response){
+            console.log('좋아요 클릭', response['likes'])
+
+            // 현재 게시물에 대한 ㅈ좋아요 여부에 따라 버튼안의 이미지 보여주기 
+            if (response['is_liked']) {
+              $('.recommand img:last').addClass('disabled');
+              $('.recommand img:first').removeClass('disabled');
+            
+            }else {
+              $('.recommand img:first').addClass('disabled');
+              $('.recommand img:last').removeClass('disabled');
+            }
+
+            $('.like_count span').html(response['likes']);
+          },
+          error: function (rs, e) {
+            console.log(rs.responseText);
+          }
+        })
+      })
+    })
+  </script>
+
+
+{% endblock script %}

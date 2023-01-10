@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="row">
+  <div class="col-1 recommand mb-2">
+    <button type='button' class="px-3 mb-2" value='{{post.pk}}'>
+      <img src="{% static 'img/like2.png' %}" alt="like" class="like {% if not is_liked %}disabled{% endif %}">
+      <img src=" {% static 'img/like1.png' %}" alt="unlike" class="unlike {% if  is_liked %}disabled{% endif %}">
+    </button>
+    <div class="like_count">좋아요
+      <span>{{post.likes.count}}</span>개
+    </div>
+  </div>
+</div>

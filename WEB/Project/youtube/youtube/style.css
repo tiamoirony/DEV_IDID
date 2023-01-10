@@ -219,48 +219,48 @@ header .icons .fa-ellipsis-v{
     padding: 0 var(--padding);
 }
 
-.Upnext > .title {
+.upNext > .title {
     font-size: var(--font-medium);
     color: var(--grey-dark-color);
     margin-bottom: calc(var(--padding) /2 );
 }
 
-.Upnext .item{
+.upNext .item{
     display: flex;
     margin-top: var(--padding);
 }
-.Upnext .item img{
+.upNext .item img{
     width: 100px;
     height: 200px;
 
 }  
-.Upnext .item .img{
+.upNext .item .img{
     flex: 1 1 35%;
 
 
 }   
 
-.Upnext .item .img img{
+.upNext .item .img img{
     width: 100%;
 }   
 
 
 
-.Upnext .item .info {
+.upNext .item .info {
     flex: 1 1 60%;
     display: flex;
     flex-direction: column;
 
 }   
 
-.Upnext .item .moreBtn {
+.upNext .item .moreBtn {
     height: 100%;
     flex: 1 1 5%;
 
 }   
 
-.Upnext .item .info .name,
-.Upnext .item .info .views {
+.upNext .item .info .name,
+.upNext .item .info .views {
     font-size: var(--font-micro);
     color: var(--grey-dark-color);
 }
@@ -270,7 +270,7 @@ header .icons .fa-ellipsis-v{
     flex-direction: column;
 }
 
-@media screen and (min-width:768px) {
+@media screen and (min-width: 768px) {
     .infoAndUpNext {
         flex-direction: row;
         margin: var(--padding) 0; 
