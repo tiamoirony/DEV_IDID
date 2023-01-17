@@ -8,12 +8,9 @@ from django import forms
 #     class Meta:
 #         model = User
 #         fields = ['email', 'name','phone']
-        
-        
+
+
 class RegisterForm(forms.ModelForm):
-    
-    
-    
     class Meta:
         model = User
-        fields = ['email', 'name','phone']
+        fields = ["email", "name", "phone"]

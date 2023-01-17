@@ -15,12 +15,13 @@ def signup(request):
         if form.is_valid(): # 검증하기
             form.save()
             return redirect('users:login')
-        
+
     else:
         form = UserForm()
         
         
     return render(request,'users/register.html',{'form':form})
+
 
 
 def islogin(request):
@@ -42,7 +43,7 @@ def islogin(request):
     return render(request,'users/login.html')
 
 def common_logout(request):
-    # 세션 해제 
+    # 세션 해제  
     logout(request)
     return redirect('index')
 

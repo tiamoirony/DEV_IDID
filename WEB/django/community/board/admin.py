@@ -4,7 +4,9 @@ from django.contrib import admin
 
 from .models import Board
 
+
 class BoardAdmin(admin.ModelAdmin):
-    list_display = ('title', 'register_dttm')
+    list_display = ("title", "register_dttm")
+
 
 admin.site.register(Board, BoardAdmin)

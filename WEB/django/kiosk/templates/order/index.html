@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/order.css' %}">
+{% endblock style %}
+{% block contents %}
+  <h3>주막</h3>
+
+  <!-- 모달 구현-->
+  <div class="black-bg">
+    <div class="white-bg">
+      <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="clearfix mb-3 justify-content-center">
+          <span class="close">X</span>
+          <img src="{% static 'img/jinro.jpg' %}" alt=""/>
+        </div>
+        <h1>진로</h1>
+        <h1>5000</h1>
+        <!-- 수령 변경 버튼-->
+        <div class="bbb">
+          <input type="button" class="btn btn-sm btn-outline-secondary" onclick='count("plus")' value="+"/>
+          <input type="button" class="btn btn-sm btn-outline-danger" onclick='count("minus")' value="-"/>
+          <div id="result">0</div>
+
+        </div>
+
+        <div class="conte mb-3">
+          <a href="{% url 'order_new'  %}" class="btn btn-primary">주문하기</a>
+        </div>
+
+        <!-- 주문 버튼-->
+      </form>
+    </div>
+  </div>
+  <!-- 주문 버튼-->
+
+  <div class="con">
+    <div class="container mt-4">
+      <h3>상품목록</h3>
+      <div class="row">
+        <div class="col-sm-4">
+          <a href="" img-toggle="lightbox" class="col-sm-4" img-title="모달 제목" img-footer="모달 푸터내용">
+            <img src="{% static 'img/isel.jpg' %}" alt="" class="w-100"/>
+          </a>
+          <h5>참이슬</h5>
+          <p>5000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href="" class="ww"><img src="{% static 'img/day.jpg' %}" alt="" class="w-101"/></a>
+          <h5>좋은데이</h5>
+          <p>5000</p>
+        </div>
+        <div class="col-sm-4 index">
+          <img src="{% static 'img/jinro.jpg' %}" alt="" class="w-102"/>
+          <h5>진로</h5>
+          <p>5000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href=""><img src="{% static 'img/cass.jpg' %}" alt="" class="w-103"/></a>
+          <h5>까스</h5>
+          <p>4000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href=""><img src="{% static 'img/trra.jpg' %}" alt="" class="w-104"/></a>
+          <h5>테라</h5>
+          <p>4000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href=""><img src="{% static 'img/c1.jpg' %}" alt="" class="w-105"/></a>
+          <h5>c1</h5>
+          <p>5000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href=""><img src="{% static 'img/changha.jpg' %}" alt="" class="w-106"/></a>
+          <h5>청하</h5>
+          <p>5000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href=""><img src="{% static 'img/2012915_56691_122.jpg' %}" alt="" class="w-107"/></a>
+          <h5>1924</h5>
+          <p>10000</p>
+        </div>
+        <div class="col-sm-4">
+          <a href=""><img src="{% static 'img/2012915_56691_122.jpg' %}" alt="" class="w-108"/></a>
+          <h5>one소주</h5>
+          <p>5000</p>
+        </div>
+      </div>
+      <button class="btn btn-danger" id="more">더보기</button>
+    </div>
+  </div>
+{% endblock contents %}
+{% block script %}
+  <script src='{% static 'js/order.js' %}'></script>
+{% endblock script %}

@@ -19,7 +19,7 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("books/", include('book.urls')), # 도서 목록 전체
-    path("users/", include('user.urls')),
-    path("",TemplateView.as_view(template_name='index.html'),name='index' ),
+    path("books/", include("book.urls")),  # 도서 목록 전체
+    path("users/", include("user.urls")),
+    path("", TemplateView.as_view(template_name="index.html"), name="index"),
 ]

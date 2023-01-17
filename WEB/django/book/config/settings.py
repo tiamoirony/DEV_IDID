@@ -37,8 +37,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'book',
-    'user',
+    "book",
+    "user",
 ]
 
 MIDDLEWARE = [
@@ -56,7 +56,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR, 'templates'],
+        "DIRS": [BASE_DIR, "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -112,7 +112,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = "static/"
-STATICFILES_DIRS= [BASE_DIR / 'static']
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -120,8 +120,8 @@ STATICFILES_DIRS= [BASE_DIR / 'static']
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # 로그인 성공 후 이동 url 지정
-# 장고의 로그인 기능을 이용하게 되면 로그인 성공 후 profile/ 로 이동하기 때문에 
+# 장고의 로그인 기능을 이용하게 되면 로그인 성공 후 profile/ 로 이동하기 때문에
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = "/"
 
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = "/"

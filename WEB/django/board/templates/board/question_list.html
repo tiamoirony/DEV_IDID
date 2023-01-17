@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+{% load board_filter %}
+{% block contents %}
+  <div class="container my-3">
+    <h1>Question List</h1>
+    <div class="row justify-content-end my-3">
+
+      <div class="col-3">
+        <select name="" id="so" class="form-control so">
+          <option value="recent" {% if so == 'recent' %} selected{% endif %}>최신순</option>
+          <option value="recommend" {% if so == 'recommend' %} selected{% endif %}>추천순</option>
+          <option value="popular" {% if so == 'popular' %} selected{% endif %}>인기순</option>
+        </select>
+
+      </div>
+      <div class="col-9">
+        <div class="input-group">
+          <input type="text" name="keyword" id="keyword" class="form-control" value='{{keyword|default_if_none:' '}}'/>
+          <button type="button" class="btn btn-outline-secondary">찾기</button>
+        </div>
+      </div>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>번호</th>
+          <th>추천수</th>
+          <th>제목</th>
+          <th>조회수</th>
+          <th>작성자</th>
+          <th>작성일자</th>
+        </tr>
+      </thead>
+      <!-- {{forloop.counter}}-->
+      <tbody>
+        {% for question in question_list %}
+          <tr>
+            <td>
+              {{question_list.paginator.count|sub:question_list.start_index|sub:forloop.counter0|add:1}}
+            </td>
+            <td>
+              {% if question.voter.count %}
+                <span class="badge bg-warning px-2 py-1">{{question.voter.count}}</span>
+              {% endif %}
+            </td>
+            <td>
+              <a href="{% url 'detail' question.pk %}" class='nav-link move'>
+                {{question.title}}
+                <span class="text-danger small m-2">[{{question.answer_set.count}}]</span>
+                <!-- -->
+              </a>
+            </td>
+            <td>{{question.view_cnt}}</td>
+            <td>{{question.author}}</td>
+            <td>{{question.created_at}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+        {% if question_list.has_previous%}
+          <li class="page-item">
+            <a class="page-link" href="#" data-page="{{question_list.previous_page_number}}">Previous</a>
+          </li>
+        {% endif %}
+        {% for page in question_list.paginator.page_range %}
+
+          <!-- 보여지는 페이지 조정-->
+          {% if page >= question_list.number|add:-5 and Page <= question_list|add:5 %}
+            <li class="page-item {% if page == question_list.number %}active{% endif %}">
+              <a class="page-link" href="#" data="page='{{page}}'>{{page}}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        {% if question_list.has_next%}
+        <li class=" page-item""="page-item" "">
+                <a class="page-link" href="#" data-page="{{question_list.next_page_number}}">Previous</a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
+        <a href="{% url 'question_create' %}" class="btn btn-primary">질문등록</a>
+      </div>
+
+      <!-- 검색 시 동작하는 폼 -->
+      <form action="" id='searchForm'>
+        <input type="hidden" name='keyword' value='{{keyword|default_if_none:''}}' class="keyword">
+        <input type="hidden" name='page' value='{{page|default_if_none:''}}' class="page">
+        <input type="hidden" name='so' value='{{recent|default_if_none:''}}' class="sort">
+      </form>
+
+      <!-- 검색 시 동작하는 폼 -->
+      <form action="{% url 'index' %}" id="searchForm">
+        <input type="hidden" name='keyword' value="{{keyword|default_if_none:''}}" class='keyword'>
+        <input type="hidden" name='page' value="{{page|default_if_none:''}}" id='page'>
+        <input type="hidden" name='so' value="{{so|default_if_none:''}}" id='sort'>
+      </form>
+
+    {% endblock contents %}
+    {% block script %}
+      <script>
+        //검색 버튼 클릭시
+
+        document
+          .querySelector('.btn-outline-secondary')
+          .addEventListener('click', () => {
+            let keyword = document.querySelector('#keyword').value;
+            console.log(keyword);
+
+          document.querySelector('.keyword').value = keyword;
+
+          document.querySelector('#page').value = 1;
+
+          document.querySelector('#serchForm').submit();
+
+          })
+
+        // 하단의 1,2,3 클릭시 searchForm 전송
+        const pages = document.querySelectorAll(".page-link")
+        pages.forEach((item, idx) => {
+          item.addEventListener('click', () => {
+            document
+              .querySelector('#page')
+              .value = e.taget.dataset.page;
+
+            searchForm.submit();
+
+          })
+        })
+
+        // 정렬조건 so chage되면
+        document
+          .querySelector('.so')
+          .addEventListener('change', (e) => {
+            document
+              .querySelector('#sort')
+              .value = e.target.value; //
+            searchForm.submit();
+
+          })   
+
+        // 상세보기 - keyword, sort, page 같이 따라가야 함
+    //            searhForm 보내서 필요한 정보를 detail 로 보내기
+    const titles = document.querySelectorAll(".nav-link");
+    titles.forEach((title, idx)=>{
+      title.addEventListener('click', (e)=>{
+        //제목 클릭 시 a 태그 기능 중지
+        e.preventDefault();
+        //a의 href 값 가져오기
+        //console.log(e.target.getAttribute('href'));  /board/262/
+        //console.log(e.target.href);
+        searchForm.setAttribute("action",e.target.getAttribute('href'));
+        searchForm.submit();
+      })
+    })
+    
+
+
+
+        // 제목 클릭시 a 태그 기능 정지
+        // a의 href 값 가져오기
+      /*const title = document.querySelectorAll('.move')
+        title.forEach((title, idx => {
+          title.addEventListener('click', (e) => {
+
+            e.preventDefault();
+
+            console.log(e.target.getAttribute('href'));
+            //console.log(e.target.href);
+
+          })
+        }))*/
+
+        $('.move').on('click', (e) => {
+
+            e.preventDefault();
+            searchForm.attr('action',$(this).attr('href'));
+            searchForm.submit();
+          })
+        })
+
+
+      </script>
+
+    {% endblock script %}

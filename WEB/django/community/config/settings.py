@@ -23,10 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-secret_file = os.path.join(BASE_DIR, 'secrets.json') # secrets.json 파일 위치를 명시
+secret_file = os.path.join(BASE_DIR, "secrets.json")  # secrets.json 파일 위치를 명시
 
 with open(secret_file) as f:
     secrets = json.loads(f.read())
+
 
 def get_secret(setting, secrets=secrets):
     try:
@@ -34,6 +35,7 @@ def get_secret(setting, secrets=secrets):
     except KeyError:
         error_msg = "Set the {} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
+
 
 SECRET_KEY = get_secret("SECRET_KEY")
 
@@ -52,10 +54,10 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'board',
-    'users',
+    "board",
+    "users",
 ]
-INSTALLED_APPS += ['taggit']
+INSTALLED_APPS += ["taggit"]
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -72,7 +74,7 @@ ROOT_URLCONF = "config.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR, 'templates'],  #===========================
+        "DIRS": [BASE_DIR, "templates"],  # ===========================
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -138,4 +140,4 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = "users.User"
