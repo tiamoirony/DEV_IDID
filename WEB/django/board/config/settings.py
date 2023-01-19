@@ -30,6 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -37,8 +38,24 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    
+    # 추가 소셜 로그인시 
+    'django.contrib.sites',
+    
+    
     "board",
     "user",
+]
+
+# 추가 
+INSTALLED_APPS += [
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.kakao',
+    'allauth.socialaccount.providers.google',
+
+
 ]
 
 MIDDLEWARE = [
@@ -64,10 +81,27 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                
+                # 추가
+                # 'allauth' needs this from django
+                'django.template.context_processors.request',
             ],
         },
     },
 ]
+
+# 추가 
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
+    
+]
+
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -132,3 +166,42 @@ EMAIL_HOST = 'smtp.naver.com'
 EMAIL_HOST_USER = 'tiamoirony'
 EMAIL_HOST_PASSWORD = 'dydtlr112!'
 EMAIL_PORT = 465
+
+# 추가 구슬 소셜 로그인을 위해서 google.json 읽어오기 
+import os
+import json
+from django.core.exceptions import ImproperlyConfigured
+
+google = os.path.join(BASE_DIR, 'google.json')
+with open(google) as f :
+    google = json.loads(f.read())
+
+def get_social(setting, google=google):
+    try:
+        return google[setting]
+    
+    except KeyError:
+        error_msg = 'set the {0} environment varibable'.format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+# 
+SOCIALACCOUNT_PROVIDERS = {
+    
+    'google':{
+        'APP':{
+            'client_id' : get_social('client_id'),
+            'secret': get_social('client_secret'),
+
+        },
+        'SCOPE':[
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS':{
+            'access_type':'offline'
+        }
+    }
+}
+
+SOCIALACCOUNT_LOGIN_ON_GET = True # get 방식을 허용 하겟다 
+SITE_ID = 2 # 사이트 아이뒤 127.0.0.1 

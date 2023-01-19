@@ -33,13 +33,13 @@ def register(request):
             login(request, user)
             return redirect("index")
 
-    else:
+    else: 
         form = UserForm()
 
     return render(request, "user/register.html", {"form": form})
 
 
-class UserPasswordResetView(PasswordResetView):
+class UserPasswordResetView(PasswordResetView): 
     # 이메일을 입력할 수 있는 화면
     template_name = 'user/password_reset_form.html'
     # 이메일이 존재하는 경우 그 다음 작업을 진행할 경로 지정
@@ -65,6 +65,7 @@ class UserPasswordResetDoneView(PasswordResetDoneView):
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
     template_name = 'user/password_reset_confirm.html'
+    
     
 class UserPasswordResetConpleteView(PasswordResetCompleteView):
     template_name ='user/passwrd_reset_complete.html'

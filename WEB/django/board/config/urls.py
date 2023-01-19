@@ -29,6 +29,7 @@ urlpatterns = [
     path("", base_views.index),
     
     
+    path('accounts/', include('allauth.urls')),
     
     
     # 회원가입 시 입력했던 이메일을 입력할 수 있는 화면 제공 
@@ -44,6 +45,6 @@ urlpatterns = [
     
     # 클래스 뷰 
 
-    
+
 ]
 

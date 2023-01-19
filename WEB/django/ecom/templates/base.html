@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="crossorigin">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+    <!-- Default theme -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>
+    <!-- Semantic UI theme -->
+    <style>
+
+      a {
+        text-docoration: none;
+      }
+
+      .product-viewtag {
+        background-color: red;
+        color: #fff;
+        font-size: 11px;
+        line-height: 1;
+        position: absolute;
+        text-align: center;
+        text-transform: uppercase;
+        top: 22px;
+        margin-left: 17.5rem;
+        padding: 7px 10px;
+        font-weight: 600;
+        min-width: 45px;
+      }
+
+      .ajs-message.ajs-custom {
+        color: #31708f;
+        background-color: #d9edf7;
+        border-color: #31708f;
+
+      }
+    </style>
+
+    <title>Myappp</title>
+
+  </head>
+
+  <body>
+    {% include 'navbar.html' %}
+    {% block contents %}{% endblock contents %}
+    <script src='{% static 'js/bootstrap.bundle.js' %}'></script>
+    <script src='{% static 'js/custom.js' %}'></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+    <script>
+
+      alertify.set('notifier', 'position', 'top-center');
+
+      {% for msg in messages %}
+      alertify.success("{{msg}}");
+      {% endfor %}
+    </script>
+
+    {% block script %}{% endblock script %}
+
+  </body>
+
+</html>
