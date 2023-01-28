@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+
+    <div>
+      <h1>1 번문제</h1>
+      <input type="text" name="input" id="input"/>
+      <input type="button" value="과연?"/>
+      <p class="result">정답은?</p>
+    </div>
+
+    <div>
+      <h1>2 변수 문제</h1>
+      <input type="text2" name="input2" id="input2"/>
+      <input type="button" name="push2" value="과연?"/>
+      <p class="result2">정답은?</p>
+    </div>
+
+    <div>
+      <h1>3 거꾸로</h1>
+      <input type="text3" name="input3" id="input3"/>
+      <input type="button" name="push3" value="과연?"/>
+      <p class="result3">정답은?</p>
+    </div>
+
+    <div>
+      <h1>4 놀이기구</h1>
+      <h1>
+        키를 입력하시오
+      </h1>
+      <input type="text4" name="input4" id="input4"/>
+      <input type="button" name="push4" value="과연?"/>
+      <p class="result4">정답은?</p>
+    </div>
+
+    <script>
+      document
+        .querySelector("[type='button']")
+        .addEventListener("click", () => {
+          const input = document.querySelector("#input");
+          const planets = [
+            '수성',
+            '금성',
+            '지구',
+            '화성',
+            '목성',
+            '토성',
+            '천왕성',
+            '해왕성'
+          ];
+
+          document
+            .querySelector(".result")
+            .innerHTML = planets[input.value - 1];
+        })
+
+      document
+        .querySelector("[name='push2']")
+        .addEventListener("click", () => {
+          const input = document
+            .querySelector("#input2")
+            .value;
+          const n = input;
+          let tree = '';
+
+          for (let i = 1; i <= n; i++) {
+            let star = '';
+            for (let j = 1; j <= n - i; j++) {
+              star += ' ';
+            }
+            for (let k = 1; k <= 2 * i - 1; k++) {
+              star += '*';
+            }
+            tree += star + '\n';
+          }
+          document
+            .querySelector(".result2")
+            .innerHTML = tree;
+        });
+
+      document
+        .querySelector("[name='push3']")
+        .addEventListener("click", () => {
+
+          const input = document
+            .querySelector("#input3")
+            .value;
+
+          const reverseString = input
+            .split('')
+            .reverse()
+            .join('');
+
+          document
+            .querySelector(".result3")
+            .innerHTML = reverseString;
+        });
+
+      document
+        .querySelector("[name='push4']")
+        .addEventListener("click", () => {
+          const input = document.querySelector("#input4");
+
+          let msg = ''
+          if (input.value >= 150) {
+            msg = "고고";
+          } else if (input.value < 150) {
+            msg = "노노";
+          }
+
+          document
+            .querySelector(".result4")
+            .innerHTML = msg;
+
+        });
+    </script>
+
+  </body>
+
+</html>
