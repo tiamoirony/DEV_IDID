@@ -8,4 +8,3 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("<int:pk>/new/", views.order_new, name="order_new"),
 ]
- 

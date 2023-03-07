@@ -7,9 +7,7 @@ class Todo(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     complete = models.BooleanField(default=False)
     important = models.BooleanField(default=False)
-    
-    
-    # 오브젝트 대신 타이틀로 목록 만들기 
+
+    # 오브젝트 대신 타이틀로 목록 만들기
     def __str__(self) -> str:
         return self.title
-    

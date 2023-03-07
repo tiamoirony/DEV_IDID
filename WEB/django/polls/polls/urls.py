@@ -10,27 +10,17 @@ app_name = "polls"
 urlpatterns = [
     # html 페이지만 띄우면 될 때
     # path('',TemplateView.as_view(template_name="polls/index.html"),name="index"),
-
-
     #### 함수형 뷰 ####
-    
     # path('',views.index,name="index"),
-
     # # /polls/1/
     # path('<int:pk>/',views.detail, name="detail"),
-
     # # /polls/1/vote/
     # path('<int:pk>/vote/',views.votes, name="vote"),
-
     # # /polls/1/results/
     # path('<int:pk>/results/',views.results, name="results"),
-
-
     #### 클래스 뷰 ####
-    path('',views.IndexView.as_view(),name="index"),
-    path('<int:pk>/',views.PollDetailView.as_view(), name="detail"),
-    path('<int:pk>/results/',views.PollResultView.as_view(), name="results"),
-
-    
-    path('<int:pk>/vote/',views.votes, name="vote"),
+    path("", views.IndexView.as_view(), name="index"),
+    path("<int:pk>/", views.PollDetailView.as_view(), name="detail"),
+    path("<int:pk>/results/", views.PollResultView.as_view(), name="results"),
+    path("<int:pk>/vote/", views.votes, name="vote"),
 ]

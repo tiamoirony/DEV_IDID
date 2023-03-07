@@ -29,17 +29,16 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
- 
+
 INSTALLED_APPS = [
-    'jazzmin',
+    "jazzmin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
-    'store',
+    "store",
 ]
 
 MIDDLEWARE = [
@@ -54,7 +53,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
-TEMPLATES = [ 
+TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [BASE_DIR, "templates"],
@@ -68,7 +67,7 @@ TEMPLATES = [
             ],
         },
     },
-]  
+]
 
 WSGI_APPLICATION = "config.wsgi.application"
 
@@ -79,12 +78,11 @@ WSGI_APPLICATION = "config.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": 'djangoecom',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD':'dydtlr119',
-        'PORT':'3306',
-        
+        "NAME": "djangoecom",
+        "HOST": "localhost",
+        "USER": "root",
+        "PASSWORD": "dydtlr119",
+        "PORT": "3306",
     }
 }
 
@@ -122,10 +120,9 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 
 
+MEDIA_URL = "/images/"
 
-MEDIA_URL = '/images/'
-
-MEDIA_ROOT = BASE_DIR / 'static'
+MEDIA_ROOT = BASE_DIR / "static"
 
 
 # Default primary key field type

@@ -1,0 +1,91 @@
+.book-toc {
+    position: relative;
+    width: fit-content;
+    border: 0px solid #b0d197;
+    padding: 10px 20px 10px 15px;
+	  background-color: #fafafa; 
+	  color: #333;
+    z-index: 1;
+}
+.book-toc:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+	  background-color: #fafafa; 
+	  color: #333;
+    z-index: -1;
+    opacity: 0.1;
+}
+.book-toc p {
+ 	  font-size: 15px; 
+	  padding: 7px 10px 5px; 
+	  margin: 0 0 10px; 
+	  border-left: 5px solid #666; 
+	  background-color: #fafafa; color: #333;
+}
+#toc * {
+    font-size: 20px;
+    color: #000 !important;
+}
+#toc {
+    margin-bottom: 0;
+}
+#toc a:hover {
+    color: #000;
+}
+#toc ul {
+    margin-top: 5px;
+    margin-bottom: 0px;
+}
+#toc > li {
+    padding-left: 0;
+    text-indent: 0;
+    margin-bottom: 10px;
+	  list-style-type: none;
+}
+
+#toc > li > a { 
+ 	  font-size: 15px; 
+	  padding: 7px 10px 5px; 
+	  margin: 0 0 10px; 
+	  border-left: 5px solid #666; 
+	  background-color: #fafafa; 
+	  color: #333;
+}
+
+#toc > li > ul {
+    padding-left: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#toc > li > ul > li {
+    font-size: 0.87em;
+    padding-left: 0;
+    text-indent: 0;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+#toc > li > ul > li > a {
+    font-size: 1em;
+    text-decoration:none;
+}
+#toc > li > ul > li > ul {
+    padding-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+#toc > li > ul > li > ul > li {
+    font-size: 0.87em;
+	  list-style-type: none;
+    padding-left: 0;
+    text-indent: 0;
+    margin-bottom: 0;
+    margin-top: 3px;
+}
+#toc > li > ul > li > ul > li > a {
+    font-size: 0.875em;
+    text-decoration:none;
+}

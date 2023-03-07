@@ -1,0 +1,93 @@
+<skin>
+  <information>
+    <name>#1</name>
+    <!-- 스킨 이름 -->
+    <version>1.1</version>
+    <!-- 스킨 버전 -->
+    <description>
+      <!-- 스킨에 대한 설명 -->
+      <![CDATA[웹표준을 준수한 XHTML 기반의 Tistory 기본 스킨입니다.]]>
+    </description>
+    <license>
+      <!-- 스킨의 저작권 -->
+      <![CDATA[자유롭게 수정이 가능하며, 저작권 표시하에 재배포 가능합니다.]]>
+    </license>
+  </information>
+
+  <author>
+    <name>펠라시티</name>
+    <!-- 제작자 이름 -->
+    <homepage>http://blossomos.tistory.com</homepage>
+    <!-- 제작자 홈페이지 -->
+    <email>tiamomagic@gmail.com</email>
+    <!-- 제작자 이메일 -->
+  </author>
+
+  <default>
+    <recententries>4</recententries>
+    <!-- 사이드바의 최근글 표시 갯수 -->
+    <recentcomments>4</recentcomments>
+    <!-- 사이드바의 최근 댓글 표시 갯수 -->
+    <recenttrackbacks>4</recenttrackbacks>
+    <!-- 사이드바의 최근 트랙백 표시 갯수 -->
+    <itemsonguestbook>10</itemsonguestbook>
+    <!-- 한페이지에 표시될 방명록 갯수 *** -->
+    <tagsincloud>30</tagsincloud>
+    <!-- 사이드바에 표시될 태그 갯수 -->
+    <sortincloud>3</sortincloud>
+    <!-- 태그 클라우드 표현 방식 (1:인기도순, 2:이름순, 3:랜덤) -->
+    <expandcomment>1</expandcomment>
+    <!-- 댓글영역 표현 방식 (0:감추기, 1:펼치기) -->
+    <expandtrackbacks>1</expandtrackbacks>
+    <!-- 트랙백영역 표현 방식 (0:감추기, 1:펼치기) -->
+    <lengthofrecentnotice>25</lengthofrecentnotice>
+    <!-- 최근 공지 표현될 글자수 -->
+    <lengthofrecententry>27</lengthofrecententry>
+    <!-- 최근 글 표현될 글자수 -->
+    <lengthofrecentcomment>30</lengthofrecentcomment>
+    <!-- 최근 댓글에 표현될 글자수 -->
+    <lengthofrecenttrackback>30</lengthofrecenttrackback>
+    <!-- 최근 트랙백에 표현될 글자수 -->
+    <lengthoflink>30</lengthoflink>
+    <!-- 링크에 표현될 글자수 -->
+    <showlistoncategory>1</showlistoncategory>
+    <!-- 카테고리 클릭시 리스트 표현(0:숨김, 1:보임) -->
+    <showlistonarchive>1</showlistonarchive>
+    <!-- 글보관함 클릭시 리스트 표현(0:숨김, 1:보임) -->
+
+    <commentmessage>
+      <!-- 댓글 표현 방법 -->
+      <none>댓글이 없습니다.</none>
+      <!-- 댓글이 하나도 없을때 -->
+      <single>댓글 &lt;span class="cnt"&gt;하나&lt;/span&gt; 달렸습니다.</single>
+      <!-- 댓글이 하나 있을때 -->
+    </commentmessage>
+
+    <trackbackmessage>
+      <!-- 트랙백 표현 방법 -->
+      <none>받은 트랙백이 없고</none>
+      <!-- 트랙백이 하나도 없을때 -->
+      <single>트랙백이 &lt;span class="cnt"&gt;하나&lt;/span&gt;이고</single>
+      <!-- 댓글이 하나 있을때 -->
+    </trackbackmessage>
+
+    <tree>
+      <!-- 카테고리 설정 -->
+      <color>000000</color>
+      <!-- 카테고리 글자색 -->
+      <bgcolor>ffffff</bgcolor>
+      <!-- 카테고리 배경색 -->
+      <activecolor>000000</activecolor>
+      <!-- 선택시 글자색 -->
+      <activebgcolor>eeeeee</activebgcolor>
+      <!-- 선택시 배경색 -->
+      <labellength>27</labellength>
+      <!-- 표현될 카테고리 글자 수 -->
+      <showvalue>1</showvalue>
+      <!-- 카테고리 글 수 표현(0:숨김, 1:보임) -->
+    </tree>
+
+    <contentwidth>820</contentwidth>
+    <!-- 콘텐츠영역 가로 사이즈, 이 사이즈에 맞춰 에디터의 위지윅이 제대로 구현된다. -->
+  </default>
+</skin>

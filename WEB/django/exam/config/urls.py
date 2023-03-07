@@ -20,5 +20,5 @@ from exam import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.index),
-    path("exam/", include('exam.urls')),
+    path("exam/", include("exam.urls")),
 ]

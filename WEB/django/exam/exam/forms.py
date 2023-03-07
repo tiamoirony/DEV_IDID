@@ -11,39 +11,38 @@ from .models import Musician
 
 
 class NameForm(forms.Form):
-    '''
+    """
     일반 폼
-    '''
+    """
+
     # input type='text' 생성
-    name = forms.CharField(max_length=20, label='Your Name')
-    
-    
+    name = forms.CharField(max_length=20, label="Your Name")
+
     # 추가 검증 시 메소드의 이름은 clean 이 들어가도록 해야 함 관례?
     # def clean(self):
     #     cleaned_data = super().clean()
-        
+
     #     name = cleaned_data['name']
-        
+
     #     if name != '홍길동':
     #         raise forms.ValidationError('이름을 확인해 주세요')
-        
-    
+
     # clean_요소명(필드명)
     def clean_name(self):
         cleaned_data = super().clean()
-        
-        name = cleaned_data['name']
-        
-        if name != '홍길동':
-            raise forms.ValidationError('이름을 확인해 주세요')
-        
-        
+
+        name = cleaned_data["name"]
+
+        if name != "홍길동":
+            raise forms.ValidationError("이름을 확인해 주세요")
+
 
 class MusicianForm(forms.ModelForm):
-    '''
+    """
     모델 폼
-    '''
+    """
+
     class Meta:
         model = Musician
-        fields = '__all__' # fields = [필요한 필드] or (필요한 필드)
+        fields = "__all__"  # fields = [필요한 필드] or (필요한 필드)
         # exclude = ['제외할 필드']

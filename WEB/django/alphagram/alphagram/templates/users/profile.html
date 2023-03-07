@@ -1,0 +1,85 @@
+{% extends 'top.html' %}
+{% load static %}
+{% block style %}
+  <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+{% endblock style %}
+{% block contents %}
+  <div class="container my-3">
+    <div class="row justify-content-md-center border-bottom pb-4">
+      <div class="col-2">
+        <a href="#imageModal" data-bs-toggle="modal" data-bs-target="#imageModal">
+          <img src="{{user.profile.image.url}}" alt="" title="프로필 사진 변경" class="rounded-circle profile_change">
+        </a>
+      </div>
+      <div class="col-6">
+        <h4>
+          <!--로그인 사용자 name-->
+          {{user.name}}
+        </h4>
+        <div class="row my-3">
+          <div class="col-3">
+            <span>게시물</span>
+            <span>
+              <!--사용자가 작성한 게시물 숫자-->
+              {{contents.count}}
+            </span>
+          </div>
+          <div class="col-3">
+            <span>팔로우</span>
+            <span>
+              <!--사용자 팔로잉 숫자-->
+            </span>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col">
+            <!--로그인 사용자 nickname-->
+            {{user.nickname}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include 'users/profile_modal.html' %}
+{% endblock contents %}
+{% block script %}
+  <script>
+    // 현재 사진 클릭되면 a 태그 기능 중지
+    // ajax 로 요청 보내기 "{% url "user_profile_delete" %}"
+    $(".delete").on("click", (e) => {
+      e.preventDefault();
+
+      $.ajax({
+        url: "{% url 'user_profile_delete' %}",
+        success: function (response) {
+          location.reload();
+        }
+      })
+    })
+
+    // 프로필 사진 변경 클릭 되면 사용자가 변경할 이미지 선택
+    // 사용자가 선택한 이미지를 서보로 전송 (ajax)
+    $
+      .("#file")
+      .on("change", () => {
+
+        const form = document.querySelector("#image_change");
+        fromData = new FormData(form)
+
+        $.ajax({
+          url: "{% url 'user_profile_update' %}",
+          type: 'post',
+          data: formData,
+          contentType: false,
+          processData: false,
+          success: function (response) {
+            console.log(response);
+            location.reload();
+          },
+          error: function (req, status, error) {
+            console.log(req.responseJSON.message)
+          }
+        })
+      })
+  </script>
+{% endblock script %}

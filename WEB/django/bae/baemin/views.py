@@ -9,14 +9,14 @@ from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, "baemin/index.html", {"shop_list": Shop.objects.all(),})
- 
- 
+
+
 @login_required
 def order_new(request, pk):
     shop = get_object_or_404(Shop, id=pk)
     if request.method == "POST":
         form = OrderForm(shop, request.POST)
-        if form.is_valid(): 
+        if form.is_valid():
             order = form.save(commit=False)
             order.user = request.user
             order.shop = shop
@@ -25,6 +25,6 @@ def order_new(request, pk):
             return redirect("profile")
         pass
     else:
-        
+
         form = OrderForm(shop)
     return render(request, "baemin/order_form.html", {"form": form, "shop": shop})

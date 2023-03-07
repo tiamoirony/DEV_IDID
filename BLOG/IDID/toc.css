@@ -1,0 +1,155 @@
+@import 'https://tistory4.daumcdn.net/tistory/4702226/skin/style.css';
+
+.toc {
+  border: 1px solid #eee;   
+  font-size: 14px;
+  box-shadow: 0 4px 2px rgb(0 0 0 / 20%);
+  margin: -30px 0 60px 0;
+  user-select: none;
+}
+
+.toc .toc-header {
+  display: flex;
+  padding: 12px;
+  align-items: center;
+  background-color: var(--white-coral);
+}
+
+.toc .toc-header .toc-icon {
+  margin-right: 6px;
+}
+
+.toggle-btn {
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.toc .toc-header .toggle-btn {
+  margin-left: auto;
+}
+
+.toc.on .toc-list {
+  height: auto;
+}
+
+.toc .toc-list {
+  height: 0;
+  overflow: hidden;
+}
+
+.toc-list li {
+  list-style: none;
+}
+
+.toc .toc-list li {
+  border-top: 1px solid #eee;
+}
+
+.toc .toc-list li a::before {
+  margin-right: 10px;
+  font-weight: 500;
+}
+
+.toc .toc-list li[data-tag="0"] {
+  counter-increment: tag0;
+  counter-reset: tag1;
+}
+
+.toc .toc-list li[data-tag="0"] a::before {
+  content: counter(tag0);
+}
+
+.toc .toc-list li[data-tag="1"] {
+  counter-increment: tag1;
+  counter-reset: tag2;
+}
+
+.toc .toc-list li[data-tag="1"] a {
+  padding-left: 32px;
+}
+
+.toc .toc-list li[data-tag="1"] a::before {
+  content: counter(tag0)'.'counter(tag1);
+}
+
+.toc .toc-list li[data-tag="2"] a {
+  padding-left: 48px;
+}
+
+.toc .toc-list li[data-tag="2"] a::before {
+  content: '-';
+}
+
+.toc .toc-list li a {
+  padding: 16px 20px;
+  display: block;
+  font-size: 14px;
+}
+
+.toc .toc-list li a:hover {
+  transition: .2s;
+  background-color: var(--white-gray);
+}
+
+.toc-right {
+  position: fixed;
+  width: 240px;
+  top: 40px;
+  right: -240px;
+  transition: right .2s;
+  border-left: 4px solid #111;
+  padding: 12px 16px;
+}
+
+.toc-right.on {
+  right: 0;
+}
+
+.toc-right .toc-list li a {
+  font-size: 12px;
+}
+
+.toc-right .toc-list li a:hover,
+.toc-right .toc-list li a.active {
+  font-weight: 500;
+}
+
+.toc-right .toc-header {
+  background-color: #fff8;
+  backdrop-filter: blur(2px);
+  position: absolute;
+  left: -36px;
+  top: 36px;
+  width: 36px;
+  height: 36px;
+  display: none;
+}
+
+.toc-right .toggle-btn {
+  font-size: 10px;
+  transition: transform .2s;
+}
+
+.toc-right.on .toggle-btn,
+.toc.on .toggle-btn {
+  transform: rotate(180deg);
+}
+
+@media screen and (max-width: 1600px) {
+  .toc-right {
+    background-color: #fff8;
+    backdrop-filter: blur(2px);
+    border-left: none;
+    right: -240px;
+    z-index: 10;
+  }
+
+  .toc-right .toc-header {
+    display: flex;
+  }
+
+  .toc-right,
+  .toc-right .toc-header {
+    box-shadow: 0 2px 10px 2px rgb(0 0 0 / 15%);
+  }
+}

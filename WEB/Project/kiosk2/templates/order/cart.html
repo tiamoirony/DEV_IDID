@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+  <div class="container mx-auto px-5">
+    <h3>{{user}}'s Profile</h3>
+    <h1 class='pb-3 border-bottom'>주문내역</h1>
+    {% include 'form_errors.html' %}
+    <form action="" method="post">
+      {% csrf_token %}
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>종류</th>
+            <th>이름</th>
+            <th>갯수</th>
+            <th>가격</th>
+            <th>주문일자</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{item.title}}</td
+            <td>{{item.name}}</td>
+            <td>{{item.count}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.created_at}}</td>
+          </tbody>
+        </table>
+
+        <div class="col">
+          <a href="{% url 'index'  %}" class="btn btn-info">list</a>
+        </div>
+      </form>
+    </div>
+
+  {% endblock contents %}

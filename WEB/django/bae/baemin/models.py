@@ -17,7 +17,7 @@ class Shop(models.Model):
     tel = models.CharField(max_length=100)
     addr = models.CharField(max_length=100)
 
-    def __str__(self): 
+    def __str__(self):
         return self.name
 
 

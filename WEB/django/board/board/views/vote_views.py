@@ -38,4 +38,3 @@ def vote_answer(request, answer_id):
         messages.error(request, "본인 추천 안됨ff")
 
     return redirect("detail", question_id=answer.question.id)
-

@@ -1,7 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import UserForm
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.views import PasswordResetView,PasswordResetDoneView, PasswordResetCompleteView, PasswordResetConfirmView
+from django.contrib.auth.views import (
+    PasswordResetView,
+    PasswordResetDoneView,
+    PasswordResetCompleteView,
+    PasswordResetConfirmView,
+)
+
 # Create your views here.
 
 from django.contrib.auth.models import User
@@ -33,39 +39,38 @@ def register(request):
             login(request, user)
             return redirect("index")
 
-    else: 
+    else:
         form = UserForm()
 
     return render(request, "user/register.html", {"form": form})
 
 
-class UserPasswordResetView(PasswordResetView): 
+class UserPasswordResetView(PasswordResetView):
     # 이메일을 입력할 수 있는 화면
-    template_name = 'user/password_reset_form.html'
+    template_name = "user/password_reset_form.html"
     # 이메일이 존재하는 경우 그 다음 작업을 진행할 경로 지정
-    success_url = reverse_lazy('password_reset_done')
+    success_url = reverse_lazy("password_reset_done")
     # 이메일로 전송될 페이지 지정
-    email_template_name ='user/password_reset_email.txt'
-    
+    email_template_name = "user/password_reset_email.txt"
+
     def form_valid(self, form):
-        #사용자가 입력한 이메일이 실제 존재하는지 확인 후 없으면 에러 메세지 전송
-        # 존재 한다면 유효성 검증 
-        
-        if User.objects.filter(email=self.request.POST.get('email')).exists():
+        # 사용자가 입력한 이메일이 실제 존재하는지 확인 후 없으면 에러 메세지 전송
+        # 존재 한다면 유효성 검증
+
+        if User.objects.filter(email=self.request.POST.get("email")).exists():
             return super().form_valid(form)
         else:
-            messages.info(self.request,'이메일을 확인해 주세요 ')
-            return redirect('password_reset')
-        
-        
+            messages.info(self.request, "이메일을 확인해 주세요 ")
+            return redirect("password_reset")
+
+
 class UserPasswordResetDoneView(PasswordResetDoneView):
-    template_name = 'user/password_reset_done.html'
-    
-    
+    template_name = "user/password_reset_done.html"
+
 
 class UserPasswordResetConfirmView(PasswordResetConfirmView):
-    template_name = 'user/password_reset_confirm.html'
-    
-    
+    template_name = "user/password_reset_confirm.html"
+
+
 class UserPasswordResetConpleteView(PasswordResetCompleteView):
-    template_name ='user/passwrd_reset_complete.html'
+    template_name = "user/passwrd_reset_complete.html"

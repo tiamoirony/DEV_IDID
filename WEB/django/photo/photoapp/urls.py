@@ -11,22 +11,14 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    
     # http://127.0.0.1:8000/photo/
-    path('',views.home, name='home'),
-    
+    path("", views.home, name="home"),
     # http://127.0.0.1:8000/photo/new + get post
-    path('new/',views.post, name='post'),
-    
+    path("new/", views.post, name="post"),
     # http://127.0.0.1:8000/photo/2
-    path('<int:pk>/',views.detail, name='detail'),
-    
+    path("<int:pk>/", views.detail, name="detail"),
     # http://127.0.0.1:8000/photo/2/remove
-    path('<int:pk>/remove/',views.remove, name='remove'),
-    
+    path("<int:pk>/remove/", views.remove, name="remove"),
     # http://127.0.0.1:8000/photo/2/edit
-    path('<int:pk>/edit/',views.edit, name='edit'),
-    
-    
-    
+    path("<int:pk>/edit/", views.edit, name="edit"),
 ]

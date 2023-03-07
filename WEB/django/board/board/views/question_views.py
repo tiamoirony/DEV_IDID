@@ -45,7 +45,6 @@ def question_delete(request, question_id):
 
 
 @login_required(login_url="login")
-
 def question_create(request):
 
     if request.method == "POST":

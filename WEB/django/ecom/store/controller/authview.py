@@ -4,10 +4,11 @@ from django.contrib.auth import authenticate, login, logout
 
 from store.forms import CustomUserForm
 
+
 def register(request):
     form = CustomUserForm()
-    if request.method == 'POST':
-        form =CustomUserForm(request.POST)
+    if request.method == "POST":
+        form = CustomUserForm(request.POST)
         if form.is_valid():
             form.save()
             # 회원가입 완료 후 바로  로그인 처리도 해주고 싶다
@@ -23,36 +24,36 @@ def register(request):
         if user is not None:
             login(request, user)
             return redirect("home")
-        
-    context = {'form':form}
-    return render(request, 'auth/register.html', context)
+
+    context = {"form": form}
+    return render(request, "auth/register.html", context)
 
 
 def loginpage(request):
-    
+
     if request.user.is_authenticated:
-        messages.warning(request, 'You are already logged in')
-        return redirect('home')
+        messages.warning(request, "You are already logged in")
+        return redirect("home")
     else:
-        if request.method =='POST':
-            name = request.POST.get('username')
-            passwd = request.POST.get('password')
+        if request.method == "POST":
+            name = request.POST.get("username")
+            passwd = request.POST.get("password")
 
             user = authenticate(request, username=name, password=passwd)
-            
+
             if user is not None:
                 login(request, user)
-                messages.success(request, 'Logged in Successfully')
+                messages.success(request, "Logged in Successfully")
                 return redirect("home")
             else:
-                messages.error(request, 'Invalid Username or Password')
-                return redirect('login')
-    
-        return render(request, 'auth/login.html')
+                messages.error(request, "Invalid Username or Password")
+                return redirect("login")
+
+        return render(request, "auth/login.html")
 
 
 def logoutpage(request):
     if request.user.is_authenticated:
         logout(request)
-        messages.success(request, 'Logged out Successfully')
+        messages.success(request, "Logged out Successfully")
     return redirect("home")

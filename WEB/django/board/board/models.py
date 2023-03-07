@@ -9,15 +9,19 @@ class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="작성자")
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="작성날짜")
     modified_at = models.DateTimeField(auto_now=True, verbose_name="수정날짜")
-    voter = models.ManyToManyField(User, related_name="voter_question", verbose_name="추천수")
-    view_cnt = models.BigIntegerField(default=0) # 조회수
-    
+    voter = models.ManyToManyField(
+        User, related_name="voter_question", verbose_name="추천수"
+    )
+    view_cnt = models.BigIntegerField(default=0)  # 조회수
+
+
 class QuestionCount(models.Model):
     ip = models.CharField(max_length=30)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.ip
+
 
 # 답변 모델
 # 질문(어떤 질문에 대한 답변인지 파악), 답변내용, 작성잘짜, 수정날짜

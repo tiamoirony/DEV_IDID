@@ -6,36 +6,28 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('exam', '0005_question_choice'),
+        ("exam", "0005_question_choice"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='choice',
-            old_name='question_text',
-            new_name='question',
+            model_name="choice", old_name="question_text", new_name="question",
         ),
         migrations.AlterField(
-            model_name='choice',
-            name='votes',
-            field=models.IntegerField(default=0, verbose_name='투표'),
+            model_name="choice",
+            name="votes",
+            field=models.IntegerField(default=0, verbose_name="투표"),
         ),
         migrations.AlterField(
-            model_name='musician',
-            name='instrument',
+            model_name="musician",
+            name="instrument",
             field=models.CharField(max_length=100),
         ),
         migrations.AlterField(
-            model_name='question',
-            name='question_text',
-            field=models.CharField(max_length=200, verbose_name='질문'),
+            model_name="question",
+            name="question_text",
+            field=models.CharField(max_length=200, verbose_name="질문"),
         ),
-        migrations.AlterModelTable(
-            name='album',
-            table='album',
-        ),
-        migrations.AlterModelTable(
-            name='musician',
-            table='musician',
-        ),
+        migrations.AlterModelTable(name="album", table="album",),
+        migrations.AlterModelTable(name="musician", table="musician",),
     ]
